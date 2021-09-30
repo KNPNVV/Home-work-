@@ -1,0 +1,31 @@
+p {
+    margin: 0px;
+    padding: 0px;
+
+}
+.aluminum, .kremlin, .phosphorus, .chlorine,
+.gallium, .germanium, .arsenic, .bromine,
+.scandium, .titanium, .vanadium, .manganese,
+.technetium, .niobium, .zirconium, .yttrium {
+    display:flex;
+    justify-content:space-between;
+}
+td {
+    width: 130px;
+}
+.element {
+    font-size: 40px;
+}
+.charge, .name {
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+}
+.name {
+    text-align: left;
+    font-weight: bold;
+}
+.names {
+    text-align: right;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
