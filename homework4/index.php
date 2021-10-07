@@ -1,9 +1,18 @@
+<?php
+$theme = date('G');
+if ($theme > 8 && $theme <= 20) {
+    $style ="CSS/style.css";
+}
+else {
+    $style ="CSS/darkstyle.css";
+}
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="<?php echo $style; ?>">
     <title>Кирюхин Кирилл</title>
 </head>
 <body>
