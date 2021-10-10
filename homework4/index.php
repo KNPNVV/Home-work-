@@ -17,16 +17,17 @@ else {
 </head>
 <body>
 <div class="container">
-    <header class="header">
-        <div class="header_logo">
-            <img src="images/logo.jpeg" alt="#">
-        </div>
-        <nav class="header_nav">
-            <a href="#">$$$$$$$</a>
-            <a href="#">$$$$$$$</a>
-            <a href="table.html">Таблица Димаса</a>
-        </nav>
-    </header>
+    <? include 'header.php' ?>
+<!--    <header class="header">-->
+<!--        <div class="header_logo">-->
+<!--            <a class="logo" href="index.php"><img src="images/logo.jpeg" alt="#"></a>-->
+<!--        </div>-->
+<!--        <nav class="header_nav">-->
+<!--            <a href="#">$$$$$$$</a>-->
+<!--            <a href="views/mass.php">Массивы</a>-->
+<!--            <a href="views/table.php">Таблица Димаса</a>-->
+<!--        </nav>-->
+<!--    </header>-->
     <main>
         <div class="portfolio">
             <div class="main_foto">
