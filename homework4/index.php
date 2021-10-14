@@ -18,16 +18,6 @@ else {
 <body>
 <div class="container">
     <? include 'header.php' ?>
-<!--    <header class="header">-->
-<!--        <div class="header_logo">-->
-<!--            <a class="logo" href="index.php"><img src="images/logo.jpeg" alt="#"></a>-->
-<!--        </div>-->
-<!--        <nav class="header_nav">-->
-<!--            <a href="#">$$$$$$$</a>-->
-<!--            <a href="views/mass.php">Массивы</a>-->
-<!--            <a href="views/table.php">Таблица Димаса</a>-->
-<!--        </nav>-->
-<!--    </header>-->
     <main>
         <div class="portfolio">
             <div class="main_foto">
@@ -40,16 +30,33 @@ else {
                 <div class="text">
                     <div class="main_summary">
                         <ul>
-                            <li>О себе:</li>
+                            <?
+                            $str = "<li>О себе:</li>
                             <li>Холост</li>
                             <li>Работаю в энергетической отрасли</li>
                             <li>Хобби сноубординг/нструктор по сноуборду</li>
-                            <li>Изучал: HTML, CSS.</li>
+                            <li>Изучал: HTML, CSS.</li>";
+                            $str1 = explode(" ", $str);
+                            $str1[0] = "<span style='color: #ea4d33'>$str1[0]</span>";
+                            $str1[1] = "<span style='color: #ea4d33'>$str1[1]</span>";
+                            $str2 = implode(" ",$str1);
+                            echo $str2;
+                            ?>
                         </ul>
                     </div>
                     <div class="main_review">
                         <p>
-                            Темп занятия комфортный,<br>все понятно и доходчиво.
+                            <?
+                            $str3 = "Темп занятия комфортный,<br>все понятно и доходчиво.";
+                            $str4 = explode(" ", $str3);
+                            foreach ($str4 as $str5 => $str6) {
+                                if ($str5 % 2 == 0) {
+                                    $str4[$str5] = "<span style='color: #ea4d33'>$str6</span>";
+                                } else  $str4[$str5] = "<span style='color: purple'>$str6</span>";
+                            }
+                            $str7 = implode(" ",$str4);
+                            echo $str7;
+                            ?>
                         </p>
                     </div>
                 </div>
@@ -93,7 +100,29 @@ else {
         </div>
     </main>
     <footer>
+        <?
+        $pattern = '~(?<vowels>[аеёиоуыэюя])~iu';
+                preg_match_all($pattern,$str, $gl);
+                preg_match_all($pattern,$str3, $gl1);
+                $gl2 = count(array_filter($gl['vowels']));
+                $gl3 = count(array_filter($gl1['vowels']));
+                $itog =  $gl2 +  $gl3;
+                echo 'Гласных букв: '. $itog;
 
+        echo "<pre>";
+        $str9 = explode(" ", $str3);
+        $str10 = explode(" ", $str);
+        $str11 = count($str9, COUNT_RECURSIVE);
+        $str12 = count($str10, COUNT_RECURSIVE);
+        $str13 = $str11 + $str12;
+        echo 'Общее количество: '. $str13;
+
+        echo "<pre>";
+        $today = date("Y-m-d");
+        $datebirth = "1993-05-24";
+        $myday = (strtotime($today)-strtotime($datebirth))/(60*60*24);
+        echo "Мне $myday дней"
+        ?>
     </footer>
 </div>
 </body>

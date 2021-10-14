@@ -1,10 +1,9 @@
 <?php
 $theme = date('G');
 if ($theme > 8 && $theme <= 20) {
-    $style ="../CSS/style.css";
-}
-else {
-    $style ="../CSS/darkstyle.css";
+    $style = "../CSS/style.css";
+} else {
+    $style = "../CSS/darkstyle.css";
 }
 ?>
 <!doctype html>
@@ -65,7 +64,7 @@ $family = array(
     'Smith' => array('Kate', 'Same'),
 );
 foreach ($family as $fam => $chel) {
-    echo $fam." ";
+    echo $fam . " ";
     echo (count($chel)) . "<br>";
 }
 
@@ -100,9 +99,9 @@ $num = array(
     'Chetnie' => array(2, 4, 6, 8, 10),
     'Nechetnie' => array(1, 3, 5, 7, 9),
 );
-echo "Общее количество " . count($num, COUNT_RECURSIVE). "<br>";
+echo "Общее количество " . count($num, COUNT_RECURSIVE) . "<br>";
 foreach ($num as $chi => $colvo) {
-    echo $chi." ";
+    echo $chi . " ";
     echo (count($colvo)) . "<br>";
 }
 ?>

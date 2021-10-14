@@ -1,11 +1,21 @@
+<?php
+$theme = date('G');
+if ($theme > 8 && $theme <= 20) {
+    $style = "../CSS/style.css";
+} else {
+    $style = "../CSS/darkstyle.css";
+}
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Таблица Димаса</title>
-    <link rel="stylesheet" href="CSS/style.table.css">
+    <link rel="stylesheet" href="../CSS/style.table.css">
+    <link rel="stylesheet" href="<?php echo $style; ?>">
 </head>
 <body>
+<? include '../header.php' ?>
 <table border="1" align="center" cellspacing="0">
     <tr bgcolor="#fbff57">
         <td>
