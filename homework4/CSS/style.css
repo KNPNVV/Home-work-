@@ -62,7 +62,7 @@ h1 {
     justify-content:space-evenly;
     margin-top: 50px;
 }
-ul, p {
+.ul, p {
     padding: 0;
     margin: 0;
 }
@@ -73,7 +73,7 @@ ul, p {
     margin: 0 auto;
     text-align: center;
 }
-li {
+.ul {
     list-style-type: none;
 }
 .cinema_flex {
@@ -132,7 +132,7 @@ h2 {
         display: flex;;
         flex-direction:column;
     }
-    ul {
+    .ul {
         margin: 10px;
     }
     .cinema_flex {
@@ -190,7 +190,7 @@ h2 {
         display: flex;;
         flex-direction:column;
     }
-    ul {
+    .ul {
         margin: 10px;
     }
 .cinema_flex {

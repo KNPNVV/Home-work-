@@ -1,10 +1,9 @@
 <?php
 $theme = date('G');
 if ($theme > 8 && $theme <= 20) {
-    $style ="CSS/style.css";
-}
-else {
-    $style ="CSS/darkstyle.css";
+    $style = "CSS/style.css";
+} else {
+    $style = "CSS/darkstyle.css";
 }
 ?>
 <!DOCTYPE html>
@@ -29,20 +28,16 @@ else {
                 </div>
                 <div class="text">
                     <div class="main_summary">
-                        <ul>
+                        <p class="ul">
                             <?
-                            $str = "<li>О себе:</li>
-                            <li>Холост</li>
-                            <li>Работаю в энергетической отрасли</li>
-                            <li>Хобби сноубординг/нструктор по сноуборду</li>
-                            <li>Изучал: HTML, CSS.</li>";
+                            $str = "О себе <br>Холост <br>Работаю в энергетической отрасли<br>Хобби сноубординг нструктор по сноуборду<br>Изучал  HTML  CSS.";
                             $str1 = explode(" ", $str);
                             $str1[0] = "<span style='color: #ea4d33'>$str1[0]</span>";
                             $str1[1] = "<span style='color: #ea4d33'>$str1[1]</span>";
-                            $str2 = implode(" ",$str1);
+                            $str2 = implode(" ", $str1);
                             echo $str2;
                             ?>
-                        </ul>
+                        </p>
                     </div>
                     <div class="main_review">
                         <p>
@@ -54,7 +49,7 @@ else {
                                     $str4[$str5] = "<span style='color: #ea4d33'>$str6</span>";
                                 } else  $str4[$str5] = "<span style='color: purple'>$str6</span>";
                             }
-                            $str7 = implode(" ",$str4);
+                            $str7 = implode(" ", $str4);
                             echo $str7;
                             ?>
                         </p>
@@ -100,29 +95,51 @@ else {
         </div>
     </main>
     <footer>
-        <?
-        $pattern = '~(?<vowels>[аеёиоуыэюя])~iu';
-                preg_match_all($pattern,$str, $gl);
-                preg_match_all($pattern,$str3, $gl1);
-                $gl2 = count(array_filter($gl['vowels']));
-                $gl3 = count(array_filter($gl1['vowels']));
-                $itog =  $gl2 +  $gl3;
-                echo 'Гласных букв: '. $itog;
+        <div class="footer">
+            <?
+            $pattern = '~(?<vowels>[аеёиоуыэюя])~iu';
+            preg_match_all($pattern, $str, $gl);
+            preg_match_all($pattern, $str3, $gl1);
+            $gl2 = count(array_filter($gl['vowels']));
+            $gl3 = count(array_filter($gl1['vowels']));
+            $itog = $gl2 + $gl3;
+            echo 'Гласных букв: ' . $itog;
 
-        echo "<pre>";
-        $str9 = explode(" ", $str3);
-        $str10 = explode(" ", $str);
-        $str11 = count($str9, COUNT_RECURSIVE);
-        $str12 = count($str10, COUNT_RECURSIVE);
-        $str13 = $str11 + $str12;
-        echo 'Общее количество: '. $str13;
+//            echo "<pre>";
+//            $str9 = explode(" ", $str3);
+//            $str10 = explode(" ", $str);
+//            $str11 = count($str9, COUNT_RECURSIVE);
+//            $str12 = count($str10, COUNT_RECURSIVE);
+//            $str13 = $str11 + $str12;
+//            echo 'Общее количество: ' . $str13;
+            //        $str77 = $str.$str3;
+            //        echo str_word_count($str77);
+            function oll($str_1, $str_2) {
+                $str9 = explode(" ", $str3);
+                $str10 = explode(" ", $str);
+                $str11 = count($str9, COUNT_RECURSIVE);
+                $str12 = count($str10, COUNT_RECURSIVE);
+                $str13 = $str11 + $str12;
+                echo 'Общее количество: ' . $str13;
+            }
+            oll($str, $str3);
 
-        echo "<pre>";
-        $today = date("Y-m-d");
-        $datebirth = "1993-05-24";
-        $myday = (strtotime($today)-strtotime($datebirth))/(60*60*24);
-        echo "Мне $myday дней"
-        ?>
+//            echo "<pre>";
+//            $today = date("Y-m-d");
+//            $datebirth = "1993-05-24";
+//            $myday = (strtotime($today) - strtotime($datebirth)) / (60 * 60 * 24);
+//            $myday_1 = round($myday);
+//            echo "Мне $myday_1 дней";
+
+            echo "<pre>";
+            function day($today, $datebirth) {
+                $myday = (strtotime($today) - strtotime($datebirth)) / (60 * 60 * 24);
+                $myday_1 = round($myday);
+                echo "Мне $myday_1 дней";
+            }
+            day(date("Y-m-d"), "1993-05-24");
+            ?>
+        </div>
     </footer>
 </div>
 </body>
