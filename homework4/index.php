@@ -1,17 +1,25 @@
 <?php
-$theme = date('G');
-if ($theme > 8 && $theme <= 20) {
-    $style = "CSS/style.css";
-} else {
-    $style = "CSS/darkstyle.css";
+//$theme = date('G');
+//if ($theme > 8 && $theme <= 20) {
+//    $style = "CSS/style.css";
+//} else {
+//    $style = "CSS/darkstyle.css";
+//}
+function page_style() {
+    $theme = date('G');
+    if ($theme > 8 && $theme <= 20) {
+        echo '<link rel="stylesheet" href="CSS/style.css">';
+    } else {
+        echo '<link rel="stylesheet" href="CSS/darkstyle.css">';
+    }
 }
+page_style();
 ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="<?php echo $style; ?>">
     <title>Кирюхин Кирилл</title>
 </head>
 <body>
@@ -31,11 +39,19 @@ if ($theme > 8 && $theme <= 20) {
                         <p class="ul">
                             <?
                             $str = "О себе <br>Холост <br>Работаю в энергетической отрасли<br>Хобби сноубординг нструктор по сноуборду<br>Изучал  HTML  CSS.";
-                            $str1 = explode(" ", $str);
-                            $str1[0] = "<span style='color: #ea4d33'>$str1[0]</span>";
-                            $str1[1] = "<span style='color: #ea4d33'>$str1[1]</span>";
-                            $str2 = implode(" ", $str1);
-                            echo $str2;
+                            function second_phrase ($str) {
+                                $str1 = explode(" ", $str);
+                                $str1[0] = "<span style='color: #ea4d33'>$str1[0]</span>";
+                                $str1[1] = "<span style='color: #ea4d33'>$str1[1]</span>";
+                                $str2 = implode(" ", $str1);
+                                echo $str2;
+                            }
+                            second_phrase($str);
+//                            $str1 = explode(" ", $str);
+//                            $str1[0] = "<span style='color: #ea4d33'>$str1[0]</span>";
+//                            $str1[1] = "<span style='color: #ea4d33'>$str1[1]</span>";
+//                            $str2 = implode(" ", $str1);
+//                            echo $str2;
                             ?>
                         </p>
                     </div>
@@ -43,14 +59,25 @@ if ($theme > 8 && $theme <= 20) {
                         <p>
                             <?
                             $str3 = "Темп занятия комфортный,<br>все понятно и доходчиво.";
-                            $str4 = explode(" ", $str3);
-                            foreach ($str4 as $str5 => $str6) {
-                                if ($str5 % 2 == 0) {
-                                    $str4[$str5] = "<span style='color: #ea4d33'>$str6</span>";
-                                } else  $str4[$str5] = "<span style='color: purple'>$str6</span>";
+                            function color_word ($str3) {
+                                $str4 = explode(" ", $str3);
+                                foreach ($str4 as $str5 => $str6) {
+                                    if ($str5 % 2 == 0) {
+                                        $str4[$str5] = "<span style='color: #ea4d33'>$str6</span>";
+                                    } else  $str4[$str5] = "<span style='color: purple'>$str6</span>";
+                                }
+                                $str7 = implode(" ", $str4);
+                                echo $str7;
                             }
-                            $str7 = implode(" ", $str4);
-                            echo $str7;
+                            color_word($str3);
+//                            $str4 = explode(" ", $str3);
+//                            foreach ($str4 as $str5 => $str6) {
+//                                if ($str5 % 2 == 0) {
+//                                    $str4[$str5] = "<span style='color: #ea4d33'>$str6</span>";
+//                                } else  $str4[$str5] = "<span style='color: purple'>$str6</span>";
+//                            }
+//                            $str7 = implode(" ", $str4);
+//                            echo $str7;
                             ?>
                         </p>
                     </div>
@@ -97,13 +124,23 @@ if ($theme > 8 && $theme <= 20) {
     <footer>
         <div class="footer">
             <?
-            $pattern = '~(?<vowels>[аеёиоуыэюя])~iu';
-            preg_match_all($pattern, $str, $gl);
-            preg_match_all($pattern, $str3, $gl1);
-            $gl2 = count(array_filter($gl['vowels']));
-            $gl3 = count(array_filter($gl1['vowels']));
-            $itog = $gl2 + $gl3;
-            echo 'Гласных букв: ' . $itog;
+//            $pattern = '~(?<vowels>[аеёиоуыэюя])~iu';
+//            preg_match_all($pattern, $str, $gl);
+//            preg_match_all($pattern, $str3, $gl1);
+//            $gl2 = count(array_filter($gl['vowels']));
+//            $gl3 = count(array_filter($gl1['vowels']));
+//            $itog = $gl2 + $gl3;
+//            echo 'Гласных букв: ' . $itog . '<br>';
+            function vowels($str, $str3) {
+                $pattern = '~(?<vowels>[аеёиоуыэюя])~iu';
+                preg_match_all($pattern, $str, $gl);
+                preg_match_all($pattern, $str3, $gl1);
+                $gl2 = count(array_filter($gl['vowels']));
+                $gl3 = count(array_filter($gl1['vowels']));
+                $itog = $gl2 + $gl3;
+                echo 'Гласных букв: ' . $itog . '<br>';
+            }
+            vowels($str, $str3);
 
 //            echo "<pre>";
 //            $str9 = explode(" ", $str3);
@@ -114,15 +151,15 @@ if ($theme > 8 && $theme <= 20) {
 //            echo 'Общее количество: ' . $str13;
             //        $str77 = $str.$str3;
             //        echo str_word_count($str77);
-            function oll($str_1, $str_2) {
+            function oll_word($str, $str3) {
                 $str9 = explode(" ", $str3);
                 $str10 = explode(" ", $str);
                 $str11 = count($str9, COUNT_RECURSIVE);
                 $str12 = count($str10, COUNT_RECURSIVE);
                 $str13 = $str11 + $str12;
-                echo 'Общее количество: ' . $str13;
+                echo 'Общее количество слов: ' . $str13. '<br>';
             }
-            oll($str, $str3);
+            oll_word($str, $str3);
 
 //            echo "<pre>";
 //            $today = date("Y-m-d");
@@ -131,11 +168,10 @@ if ($theme > 8 && $theme <= 20) {
 //            $myday_1 = round($myday);
 //            echo "Мне $myday_1 дней";
 
-            echo "<pre>";
             function day($today, $datebirth) {
                 $myday = (strtotime($today) - strtotime($datebirth)) / (60 * 60 * 24);
                 $myday_1 = round($myday);
-                echo "Мне $myday_1 дней";
+                echo "Мне $myday_1 дня";
             }
             day(date("Y-m-d"), "1993-05-24");
             ?>
