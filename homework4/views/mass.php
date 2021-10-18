@@ -104,7 +104,6 @@ foreach ($num as $chi => $colvo) {
     echo $chi . " ";
     echo (count($colvo)) . "<br>";
 }
-
 ?>
 
 </body>

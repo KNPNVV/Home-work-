@@ -7,4 +7,8 @@
         <a href="views/mass.php">Массивы</a>
         <a href="views/table.php">Таблица Димаса</a>
     </nav>
+    <div class="singup">
+        <a class="login" href="views/login.php">Авторизация</a><br>
+        <a class="login" href="views/singup.php">Регистрация</a>
+    </div>
 </header>
