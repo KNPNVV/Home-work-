@@ -45,6 +45,20 @@ singup {
     margin: 20px 0px 0px 0px;
     padding: 0px;
 }
+.color{
+    display: flex;
+}
+.color_form {
+    align-self:center;
+}
+select {
+    height: 30px;
+    width: 100px;
+    border-radius: 30px;
+    text-align: center;
+    background-color: #2b2a2a;
+    color: #d9d9d9;
+}
 .portfolio {
     text-align: center;
     display: flex;

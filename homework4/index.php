@@ -14,6 +14,7 @@ function page_style() {
     }
 }
 page_style();
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -24,7 +25,7 @@ page_style();
 </head>
 <body>
 <div class="container">
-    <? include 'header.php' ?>
+<?include 'header.php' ?>
     <main>
         <div class="portfolio">
             <div class="main_foto">

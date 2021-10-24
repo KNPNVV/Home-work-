@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (count($_POST) > 0) {
 $login = md5(trim($_POST['login']));
 $password = md5(trim($_POST['password']));
@@ -13,6 +14,9 @@ $password = md5(trim($_POST['password']));
        echo "Ошибка!";
     }
 }
+//session_destroy() удаление всех файлов сессии
+// session_unset() удаляет сессию по ключу
+
 ?>
 <!doctype html>
 <html lang="ru">
@@ -33,7 +37,13 @@ $password = md5(trim($_POST['password']));
         <button type="submit" name="singin">Войти</button>
     </form>
     <button class="back">
+        <a href="https://fact.digital/">Fact</a>
+    </button>
+    <button class="back">
         <a href="../index.php">НАЗАД</a>
+    </button>
+    <button class="back">
+        <a href="https://www.bitrix24.ru/">Bitrix</a>
     </button>
 </div>
 </body>
