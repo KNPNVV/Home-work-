@@ -1,22 +1,40 @@
 <?php
 session_start();
-if (count($_POST) > 0) {
-$login = md5(trim($_POST['login']));
-$password = md5(trim($_POST['password']));
-    $login_true = md5('admin');
-    $password_true = '202cb962ac59075b964b07152d234b70';
-    if ($login == $login_true & $password == $password_true)
-    {
-        header('Location: comment.php');
-        exit();
-    }
-    else {
-       echo "Ошибка!";
-    }
-}
+//if (count($_POST) > 0) {
+//$login = md5(trim($_POST['login']));
+//$password = md5(trim($_POST['password']));
+//    $login_true = '456b7016a916a4b178dd72b947c152b7';
+//    $password_true = '202cb962ac59075b964b07152d234b70';
+//    if ($login == $login_true & $password == $password_true)
+//    {
+//        header('Location: comment.php');
+//        exit();
+//    }
+//    else {
+//       echo "Ошибка!";
+//    }
+//}
 //session_destroy() удаление всех файлов сессии
 // session_unset() удаляет сессию по ключу
-
+$hostname = 'localhost';
+$ussername = 'Kirill';
+$password = '2844';
+$bdname = 'Login';
+$bd_connect = mysqli_connect($hostname, $ussername, $password, $bdname);
+mysqli_set_charset($bd_connect, 'utf8');
+if ( !empty($_POST['password']) and !empty($_POST['login']) ) {
+    $login = md5(trim($_POST['login']));//admin
+    $password = md5(trim($_POST['password']));//123
+    $query = 'SELECT*FROM user WHERE user_login="'.$login.'" AND user_password="'.$password.'"';
+    $result = mysqli_query($bd_connect, $query);
+    $user = mysqli_fetch_assoc($result);
+    if (!empty($user)) {
+        header('Location: comment.php');
+        exit();
+    } else {
+        echo "Ошибка!";
+    }
+}
 ?>
 <!doctype html>
 <html lang="ru">
