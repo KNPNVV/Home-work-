@@ -58,6 +58,9 @@ select {
     background-color: #d9d9d9;
     color: #2b2a2a;
 }
+.click {
+
+}
 .portfolio {
     text-align: center;
     display: flex;

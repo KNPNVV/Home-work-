@@ -16,19 +16,23 @@ session_start();
 //}
 //session_destroy() удаление всех файлов сессии
 // session_unset() удаляет сессию по ключу
-$hostname = 'localhost';
-$ussername = 'Kirill';
-$password = '2844';
-$bdname = 'Login';
-$bd_connect = mysqli_connect($hostname, $ussername, $password, $bdname);
-mysqli_set_charset($bd_connect, 'utf8');
+//$hostname = 'localhost';
+//$ussername = 'Kirill';
+//$password = '2844';
+//$bdname = 'Login';
+//$bd_connect = mysqli_connect($hostname, $ussername, $password, $bdname);
+//mysqli_set_charset($bd_connect, 'utf8');
+require_once 'config.php';
+require_once 'database.php';
+$db = new Database($pdo);
+$rows = $db->getData();
 if ( !empty($_POST['password']) and !empty($_POST['login']) ) {
     $login = md5(trim($_POST['login']));//admin
     $password = md5(trim($_POST['password']));//123
-    $query = 'SELECT*FROM user WHERE user_login="'.$login.'" AND user_password="'.$password.'"';
-    $result = mysqli_query($bd_connect, $query);
-    $user = mysqli_fetch_assoc($result);
-    if (!empty($user)) {
+//    $query = 'SELECT*FROM user WHERE user_login="'.$login.'" AND user_password="'.$password.'"';
+//    $result = mysqli_query($bd_connect, $query);
+//    $user = mysqli_fetch_assoc($result);
+    if (!empty($rows)) {
         header('Location: comment.php');
         exit();
     } else {

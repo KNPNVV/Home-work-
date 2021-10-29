@@ -8,9 +8,9 @@
 function page_style() {
     $theme = date('G');
     if ($theme > 8 && $theme <= 20) {
-        echo '<link rel="stylesheet" href="CSS/style.css">';
+        echo '<link rel="stylesheet" type="text/css" href="CSS/style.css">';
     } else {
-        echo '<link rel="stylesheet" href="CSS/darkstyle.css">';
+        echo '<link rel="stylesheet" type="text/css" href="CSS/darkstyle.css">';
     }
 }
 page_style();

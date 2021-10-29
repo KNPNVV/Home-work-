@@ -11,8 +11,8 @@ if ($theme > 8 && $theme <= 20) {
 <head>
     <meta charset="UTF-8">
     <title>Таблица Димаса</title>
-    <link rel="stylesheet" href="../CSS/style.table.css">
-    <link rel="stylesheet" href="<?php echo $style; ?>">
+    <link rel="stylesheet" type="text/css" href="../CSS/style.table.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $style; ?>">
 </head>
 <body>
 <? include '../header.php' ?>

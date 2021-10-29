@@ -13,7 +13,7 @@ if ($theme > 8 && $theme <= 20) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="<?php echo $style; ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo $style; ?>">
     <title>Массивы</title>
 </head>
 <body>
@@ -36,7 +36,7 @@ echo "<pre>";
 print_r(array_reverse($random));
 
 echo "<pre>";
-$images = array('.<img src="images/img_php/1.png">', '<img src="images/img_php/2.png">', '<img src="images/img_php/3.png">');
+$images = array('.<img src="../images/img_php/1.png">', '<img src="../images/img_php/2.png">', '<img src="../images/img_php/3.png">');
 $img = array_rand($images, 1);
 echo $images[$img];
 

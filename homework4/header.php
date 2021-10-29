@@ -2,9 +2,9 @@
 if (count($_POST) > 0) {
     $theme =  $_POST['theme'];
         if ($theme == "Серый") {
-            echo '<link rel="stylesheet" href="CSS/style.css">';
+            echo '<link rel="stylesheet" type="text/css" href="CSS/style.css">';
         } else {
-        echo '<link rel="stylesheet" href="CSS/darkstyle.css">';
+        echo '<link rel="stylesheet" type="text/css" href="CSS/darkstyle.css">';
     }
 }
 ?>
@@ -30,7 +30,7 @@ if (count($_POST) > 0) {
                 <option value="lite">Серый</option>
                 <option value="dark">Черный</option>
             </select>
-            <input type="submit">
+            <input class ="click" type="submit">
         </form>
     </div>
     <div class="singup">
